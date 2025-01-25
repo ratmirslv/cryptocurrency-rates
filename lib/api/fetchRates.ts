@@ -5,17 +5,15 @@ import { ratesSchema, RatesResponse } from "@/shemas/rates";
 
 const URL_RATES = "https://app.youhodler.com/api/v3/rates/extended";
 
-export type CurrencyRates = Array<
-  {
-    name: string;
-    order: number;
-    symbol: string;
-    image: string;
-    charts: number[];
-  } & RatesResponse[keyof RatesResponse]
->;
+export type CurrencyRate = {
+  name: string;
+  order: number;
+  symbol: string;
+  image: string;
+  charts: number[];
+} & RatesResponse[keyof RatesResponse];
 
-export const fetchRates = async (): Promise<CurrencyRates> => {
+export const fetchRates = async (): Promise<Array<CurrencyRate>> => {
   const coinMapResponse = await fetch("/api/coinMap");
   if (!coinMapResponse.ok) {
     throw new Error("Failed to fetch coin data");

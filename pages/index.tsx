@@ -9,6 +9,9 @@ export default function MainPage() {
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["rates"],
     queryFn: fetchRates,
+    staleTime: 2 * 60 * 1000,
+    gcTime: 2 * 60 * 1000,
+    refetchOnWindowFocus: false,
   });
 
   if (isError) return <ErrorMessage onRetry={refetch} />;

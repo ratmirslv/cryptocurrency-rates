@@ -1,16 +1,16 @@
-import { CurrencyRates } from "@/lib/api/fetchRates";
+import { CurrencyRate } from "@/lib/api/fetchRates";
 import Link from "next/link";
 import Image from "next/image";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
 type CurrencyTableProps = {
-  currencyData: CurrencyRates;
+  currencyData: CurrencyRate[];
 };
 
 function CurrencyTable({ currencyData }: CurrencyTableProps) {
   return (
-    <div className="overflow-x-auto max-w-[900px] mx-auto">
-      <table className="w-full border-collapse relative font-normal mt-6">
+    <div className="overflow-x-auto max-w-[900px] mx-auto mt-6">
+      <table className="w-full border-collapse relative font-normal ">
         <thead>
           <tr
             className="h-[4.2em] border-t border-b border-gray-100 dark:border-gray-700
