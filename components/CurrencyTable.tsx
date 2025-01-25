@@ -1,5 +1,7 @@
 import { CurrencyRates } from "@/lib/api/fetchRates";
 import Link from "next/link";
+import Image from "next/image";
+import { Sparklines, SparklinesLine } from "react-sparklines";
 
 type CurrencyTableProps = {
   currencyData: CurrencyRates;
@@ -36,7 +38,9 @@ function CurrencyTable({ currencyData }: CurrencyTableProps) {
                   rel="noopener noreferrer"
                   className="flex gap-3 items-center"
                 >
-                  <img
+                  <Image
+                    width={30}
+                    height={30}
                     className="rounded-full h-[30px] w-[30px]"
                     src={crypt.image}
                     alt={crypt.name}
@@ -57,7 +61,18 @@ function CurrencyTable({ currencyData }: CurrencyTableProps) {
                 })}
               </td>
 
-              <td className="text-center px-1"></td>
+              <td className="text-center px-1">
+                <Sparklines data={crypt.charts} margin={0}>
+                  <SparklinesLine
+                    color={
+                      crypt.charts[0] > crypt.charts[crypt.charts.length - 1]
+                        ? "red"
+                        : "green"
+                    }
+                    style={{ fill: "none", strokeWidth: 3 }}
+                  />
+                </Sparklines>
+              </td>
             </tr>
           ))}
         </tbody>
