@@ -4,7 +4,7 @@
   "private": true,
   "author": "Ratmir Aitov <ratmirslv@gmail.com>",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "check-types": "tsc --noEmit",
     "build": "next build",
     "start": "next start",
