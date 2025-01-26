@@ -1,40 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Cryptocurrency Rates
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Cryptocurrency Rates is a single-page application built with **React** and **TypeScript**. It fetches and displays cryptocurrency rates relative to USD using the **YouHodler API** for price data and chart visualization, and allows users to view detailed information for individual cryptocurrencies. The app integrates the **CoinGecko API** for cryptocurrency images.
+
+<div align="center" style="margin: 30px 0;">
+  <img
+    width="500"
+    height="300"
+    src="assets/main-page.png"
+    style="border-radius: 10px; margin: 0 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+    alt="Main Page"
+  />
+  <img
+    width="500"
+    height="300"
+    src="assets/second-page.png"
+    style="border-radius: 10px; margin: 0 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+    alt="Details Page"
+  />
+</div>
+
+## Stacks & Tools
+
+<a target="_blank" rel="noopener noreferrer" href="https://nextjs.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js logo" width="50" height="50" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://react.dev"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React logo" width="50" height="50" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.typescriptlang.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript logo" width="50" height="50" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://tailwindcss.com">
+<img width="50" height="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
+</a>
+<a target="_blank" rel="noopener noreferrer" href="https://tanstack.com/query/latest"><img src="https://tanstack.com/_build/assets/logo-color-600w-Er4SOkq1.png" alt="React Query logo" width="50" height="50" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://zod.dev"><img src="https://zod.dev/logo.svg" alt="Zod logo" width="50" height="50" style="max-width:100%;"></a>
+
+---
+
+## Features
+
+- **Cryptocurrency List Page (`/`)**
+
+  - Displays a list of cryptocurrencies with basic details: Name, Ticker, Price, and Chart.
+  - Links to detailed pages for each cryptocurrency.
+
+- **Cryptocurrency Details Page (`/${ticker}`)**
+
+  - Provides detailed information about the selected cryptocurrency: Rate, Ask Price, Bid Price, and 24-Hour Price Movement.
+  - Fetches and displays the cryptocurrency's logo using the CoinGecko API.
+  - Displays interactive charts of historical rates using data from the YouHodler API.
+
+- **Error Handling**
+
+  - Gracefully handles API failures and invalid data.
+
+- **Responsive Design**
+  - Ensures a seamless user experience across devices.
+
+---
+
+## Bonus Features
+
+- **Filtering**: Allows users to filter the cryptocurrency list by specific criteria, improving usability and accessibility.
+- **Interactive Charts**: Displays historical price trends with data from the YouHodler API.
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repo-url>
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd cryptocurrency-rates
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## Scripts
+
+### Development
+
+Start the application in development mode:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Build the application for production:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run build
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Start
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start the production server:
 
-## Learn More
+```bash
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Linting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Lint the codebase:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+### Type Checking
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Check TypeScript types:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+```bash
+npm run check-types
+```
+
+---
+
+## Deployment
+
+The application is deployed using [Vercel](https://vercel.com). For deployment, follow these steps:
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+2. Deploy the `.next` folder to your chosen hosting platform.
+
+---
+
+## Author
+
+**Ratmir Aitov**
+[Email](mailto:ratmirslv@gmail.com)
+
+---
+
+## License
+
+This project is licensed under the MIT License.
