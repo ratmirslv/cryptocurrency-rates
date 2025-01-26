@@ -19,6 +19,10 @@ Cryptocurrency Rates is a single-page application built with **React** and **Typ
     style="border-radius: 10px; margin: 0 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
     alt="Details Page"
   />
+<br />
+  <a href="https://github.com/ratmirslv/cryptocurrency-rates/actions/workflows/production.yaml">
+    <img src="https://github.com/ratmirslv/cryptocurrency-rates/actions/workflows/production.yaml/badge.svg?branch=main" alt="Vercel Production Deployment" />
+  </a>
 </div>
 
 ## Stacks & Tools
