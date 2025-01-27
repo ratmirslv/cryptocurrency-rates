@@ -19,7 +19,7 @@ function CurrencyTable({ currencyData }: CurrencyTableProps) {
             <th className="text-center">#</th>
             <th className="text-left">Coin</th>
             <th className="text-center">Price</th>
-            <th className="text-center">24h Chart</th>
+            <th className="text-center hidden sm:table-cell">24h Chart</th>
           </tr>
         </thead>
         <tbody>
@@ -55,23 +55,25 @@ function CurrencyTable({ currencyData }: CurrencyTableProps) {
                       src={crypt.image}
                       alt={crypt.name}
                     />
-                    <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      {crypt.name}
-                    </p>
-                    <p className="text-sm font-semibold uppercase">
-                      {crypt.symbol}
-                    </p>
+                    <div className="flex flex-col">
+                      <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        {crypt.name}
+                      </p>
+                      <p className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
+                        {crypt.symbol}
+                      </p>
+                    </div>
                   </Link>
                 </td>
 
-                <td className="text-center px-1">
+                <td className="text-center px-1 whitespace-nowrap">
                   $
                   {crypt.usd?.ask.toLocaleString(undefined, {
                     minimumFractionDigits: 2,
                   })}
                 </td>
 
-                <td className="text-center px-1">
+                <td className="text-center px-1 hidden sm:table-cell">
                   <Sparklines data={crypt.charts} margin={0}>
                     <SparklinesLine
                       color={
