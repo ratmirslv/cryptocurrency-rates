@@ -33,7 +33,7 @@ Cryptocurrency Rates is a single-page application built with **React** and **Typ
 <a target="_blank" rel="noopener noreferrer" href="https://tailwindcss.com">
 <img width="50" height="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
 </a>
-<a target="_blank" rel="noopener noreferrer" href="https://tanstack.com/query/latest"><img src="https://tanstack.com/_build/assets/logo-color-600w-Er4SOkq1.png" alt="React Query logo" width="50" height="50" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://tanstack.com/query/latest"><img src="https://tanstack.com/_build/assets/logo-color-100w-br5_Ikqp.png" alt="React Query logo" width="50" height="50" style="max-width:100%;"></a>
 <a target="_blank" rel="noopener noreferrer" href="https://zod.dev"><img src="https://zod.dev/logo.svg" alt="Zod logo" width="50" height="50" style="max-width:100%;"></a>
 
 ---
