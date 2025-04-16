@@ -13,12 +13,18 @@ export type CurrencyRate = {
   charts: number[];
 } & RatesResponse[keyof RatesResponse];
 
-export const fetchRates = async (): Promise<Array<CurrencyRate>> => {
-  const coinMapResponse = await fetch("/api/coinMap");
-  if (!coinMapResponse.ok) {
-    throw new Error("Failed to fetch coin data");
-  }
-  const coins: Coin[] = await coinMapResponse.json();
+export const fetchRates = async (
+  coinsData?: Coin[]
+): Promise<Array<CurrencyRate>> => {
+  const coins =
+    coinsData ??
+    (await (async (): Promise<Coin[]> => {
+      const coinMapResponse = await fetch("/api/coinMap");
+      if (!coinMapResponse.ok) {
+        throw new Error("Failed to fetch coin data");
+      }
+      return (await coinMapResponse.json()) as Coin[];
+    })());
 
   const coinMap = coins.reduce<Record<string, Coin>>((acc, coin) => {
     acc[coin.symbol.toLowerCase()] = coin;

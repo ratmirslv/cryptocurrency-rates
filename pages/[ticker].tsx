@@ -12,7 +12,7 @@ const CoinDetails = () => {
 
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["rates"],
-    queryFn: fetchRates,
+    queryFn: () => fetchRates(),
     staleTime: 2 * 60 * 1000,
     gcTime: 2 * 60 * 1000,
     refetchOnWindowFocus: false,

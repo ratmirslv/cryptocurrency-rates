@@ -68,7 +68,7 @@ function CurrencyTable({ currencyData }: CurrencyTableProps) {
 
                 <td className="text-center px-1 whitespace-nowrap">
                   $
-                  {crypt.usd?.ask.toLocaleString(undefined, {
+                  {crypt.usd?.ask.toLocaleString("en", {
                     minimumFractionDigits: 2,
                   })}
                 </td>

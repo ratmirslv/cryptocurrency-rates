@@ -4,13 +4,24 @@ import Header from "@/components/Header";
 import LoadingPopup from "@/components/LoadingPopup";
 import SearchInput from "@/components/SearchInput";
 import { fetchRates } from "@/lib/api/fetchRates";
-import { useQuery } from "@tanstack/react-query";
+import {
+  dehydrate,
+  DehydratedState,
+  QueryClient,
+  useQuery,
+} from "@tanstack/react-query";
+import { GetStaticProps } from "next";
 import { useState } from "react";
+import { loadCoinData } from "./api/coinMap";
+
+type Props = {
+  dehydratedState: DehydratedState;
+};
 
 export default function MainPage() {
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["rates"],
-    queryFn: fetchRates,
+    queryFn: () => fetchRates(),
     staleTime: 2 * 60 * 1000,
     gcTime: 2 * 60 * 1000,
     refetchOnWindowFocus: false,
@@ -37,3 +48,17 @@ export default function MainPage() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["rates"],
+    queryFn: async () => fetchRates(loadCoinData()),
+  });
+
+  return {
+    props: { dehydratedState: dehydrate(queryClient) },
+    revalidate: 6 * 60 * 60, // every 6 hours
+  };
+};
